@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     function cleanArticles() {
         $(".article-js").empty();
     }
@@ -33,7 +33,7 @@ $(function() {
             url: urlApi,
             type: 'GET',
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 cleanArticles();
                 var i = 0;
                 for (var id in data.query.pages) {
@@ -45,14 +45,14 @@ $(function() {
                     ++i;
                 }
             },
-            error: function() {
+            error: function () {
                 insertToast("We couldn't get any article");
             }
         });
     }
 
     function searchArticles() {
-        $("#search").bind("input", function(e) {
+        $("#search").bind("input", function (e) {
             if ($("#search").val() != "") {
                 getWikiArticles();
             } else {
