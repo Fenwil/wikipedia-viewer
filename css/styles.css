@@ -12,3 +12,7 @@ body {
 	margin: 0px !important;
 	font-size: 18px;
 }
+
+.pace .pace-progress {
+	background: #ee6e73 !important;
+}
