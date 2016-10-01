@@ -25,23 +25,23 @@ $(function () {
     }
 
     function getWikiArticles()  {
-        var url = 'https://crossorigin.me/https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=6&prop=pageimages|extracts&pilimit=max&pithumbsize=80&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=',
+        var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=6&prop=pageimages|extracts&pilimit=max&pithumbsize=80&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=',
             searchValue = $("#search").val(),
             urlApi = url + searchValue,
             goTo = "https://en.wikipedia.org/?curid=";
         $.ajax({
             url: urlApi,
             type: 'GET',
-            dataType: 'json',
+            dataType: 'jsonp',
             success: function (data) {
                 cleanArticles();
                 var i = 0;
                 for (var id in data.query.pages) {
                     insertNewCard();
-                    $(".card-content:eq(" + i + ")").children().text(data.query.pages[id].extract);
-                    $(".card-action:eq(" + i + ")").children().attr("href", goTo + id).text(data.query.pages[id].title);
-                    $(".card-content:eq(" + i + ")").children().trunk8();
-                    $(".card-action:eq(" + i + ")").children().trunk8();
+                    $(".card-content").eq(i).children().text(data.query.pages[id].extract);
+                    $(".card-action").eq(i).children().attr("href", goTo + id).text(data.query.pages[id].title);
+                    $(".card-content").eq(i).children().trunk8();
+                    $(".card-action").eq(i).children().trunk8();
                     ++i;
                 }
             },
