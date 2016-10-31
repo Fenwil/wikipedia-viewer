@@ -40,7 +40,7 @@ $(function () {
                     insertNewCard();
                     $(".card-content:eq(" + i + ")").children().text(data.query.pages[id].extract);
                     $(".card-action:eq(" + i + ")").children().attr("href", goTo + id).text(data.query.pages[id].title);
-                    $(".card-content:eq(" + i + ")").children().shave(40);
+                    $(".card-content:eq(" + i + ")").children().shave(30);
                     $(".card-action:eq(" + i + ")").children().shave(20);
                     ++i;
                 }
