@@ -38,10 +38,10 @@ $(function () {
                 var i = 0;
                 for (var id in data.query.pages) {
                     insertNewCard();
-                    $(".card-content").eq(i).children().text(data.query.pages[id].extract);
-                    $(".card-action").eq(i).children().attr("href", goTo + id).text(data.query.pages[id].title);
-                    $(".card-content").eq(i).children().trunk8();
-                    $(".card-action").eq(i).children().trunk8();
+                    $(".card-content:eq(" + i + ")").children().text(data.query.pages[id].extract);
+                    $(".card-action:eq(" + i + ")").children().attr("href", goTo + id).text(data.query.pages[id].title);
+                    $(".card-content:eq(" + i + ")").children().shave(40);
+                    $(".card-action:eq(" + i + ")").children().shave(20);
                     ++i;
                 }
             },
@@ -53,13 +53,13 @@ $(function () {
 
     function searchArticles() {
         $("#search").bind("input", function (e) {
-            if ($("#search").val() != "") {
+            if ($("#search").val() !== "") {
+                cleanArticles();
                 getWikiArticles();
             } else {
                 cleanArticles();
                 insertToast("Insert some text");
             }
-            return false;
         });
     }
 
