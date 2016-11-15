@@ -4,7 +4,7 @@ body {
 
 @font-face {
 	font-family: "Linux Libertine";
-	src: url(../fonts/LinLibertine_aDRS.ttf);
+	src: url(../../src/fonts/LinLibertine_aDRS.ttf);
 }
 
 .subtitle {
